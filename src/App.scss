@@ -1,0 +1,156 @@
+.app {
+  &__wrapper {
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__navbar {
+    &-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+
+      @media screen and (max-width: 700px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &-item {
+      a {
+        display: block;
+        background-color: var(--primary);
+        color: var(--dark);
+        padding: 1rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background-color: var(--dark);
+          color: var(--primary);
+        }
+      }
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-areas:
+      "showcase showcase box-a"
+      "showcase showcase box-b";
+    gap: 2rem;
+
+    .box-a {
+      grid-area: box-a;
+    }
+    .box-b {
+      grid-area: box-b;
+    }
+
+    @media screen and (max-width: 700px) {
+      grid-template-areas:
+        "showcase showcase"
+        "box-a box-b";
+    }
+    @media screen and (max-width: 500px) {
+      grid-template-areas:
+        "showcase"
+        "box-b"
+        "box-a";
+    }
+  }
+
+  &__header {
+    &-showcase {
+      grid-area: showcase;
+      min-height: 40rem;
+      background: url(./assets/showcase-2.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 4.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: 6.4rem;
+        margin-bottom: 0;
+        color: var(--light);
+      }
+
+      p {
+        font-size: 2rem;
+        margin-top: 0;
+        color: var(--light);
+      }
+
+      @media screen and (max-width: 700px) {
+        h2 {
+          font-size: 4rem;
+        }
+      }
+    }
+
+    &-box {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      padding: 2.4rem;
+    }
+
+    &-price {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__boxes {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  &__box {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 2.4rem 3.2rem;
+  }
+
+  &__info {
+    background: var(--primary);
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (max-width: 700px) {
+      grid-template-columns: 1fr;
+
+      .btn {
+        display: block;
+        text-align: center;
+        margin: auto;
+      }
+    }
+  }
+
+  &__portfolio {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__footer {
+    background-color: var(--dark);
+    color: var(--light);
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+}
